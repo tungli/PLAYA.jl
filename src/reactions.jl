@@ -12,13 +12,6 @@ end
 
 Replaces multiple strings "safely" -- longer strings are replace first, and a
 string cannot be replaced twice.
-
-# Examples
-
-```jldoctest
-julia> safe_replace("NO(s) -> N2 + N", Dict(["N" => "M", "NO" => "N2", "N2" => "A2"]))
-"N2(s) => A2 + M"
-```
 """
 function safe_replace(s, to_replace)
     ps = collect(to_replace)
@@ -102,6 +95,8 @@ function interpret_rate(rate_expr::String,
 end
 
 """
+    parse_reactions(filename, env; to_replace=[])
+
 Parse reactions from a file and output a
 [Catalyst](https://catalyst.sciml.ai/stable/) `ReactionSystem` and the rate
 values.
@@ -163,6 +158,8 @@ end
 
 
 """
+    keep_fixed!(odesys::ModelingToolkit.AbstractODESystem, species_name)
+
 Modify the system of ODEs, such that the concentration of `species` will be
 fixed, i.e. its time derivative will be zero.
 

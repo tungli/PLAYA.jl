@@ -5,6 +5,8 @@ function extract_reaction(s)
 end
 
 """
+    parse_bolos_block(block)
+
 Parses one block of BOLOS output file.
 Returns a reaction string and an interpolation.
 """
