@@ -1,4 +1,3 @@
-print("GSA....")
 f1 = function (p)
   prob1 = remake(prob;p=p)
   sol = solve(prob1,Rodas5();
@@ -11,7 +10,6 @@ end
 
 bounds = [ [0.5*i, 1.5*i] for i in ps ]
 m = gsa(f1, Morris(total_num_trajectory=1000, num_trajectory=150), bounds)
-println("done")
 
 # output most significant reactions
 inds = sortperm(m.means[1,:])

@@ -56,11 +56,8 @@ replacements = [
                 "=>" => "-->",
     ]
 
-println("Parsing...")
-
 # parse the reaction file
 (rs, ps) = parse_reactions("assets/air-kinetics.reactions", globals; to_replace=replacements)
-println("done.")
 
 # initial conditions
 n_gas = 2.5e19
