@@ -7,3 +7,7 @@ makedocs(modules=[PLAYA],
                     ],
          doctest = true,
         )
+
+deploydocs(
+   repo = "github.com/tungli/PLAYA.jl"
+)
