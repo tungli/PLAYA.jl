@@ -31,7 +31,6 @@ function safe_replace(s, to_replace)
     new_strings = map(x -> x.second, sorted)
 
     s2 = replace_seq(s, subs1)
-    println(s2)
     subs2 = [ i => j for (i, j) in zip(dummies, new_strings) ]
     replace_seq(s2, subs2)
 end
@@ -152,9 +151,6 @@ function parse_reactions(filename, env; to_replace=[])
         [ interpret_line(line, env, rates_list) for line in eachline(file) ]
     end
     reactions = map(x -> safe_replace(x, to_replace), reactions)
-    for i in reactions
-        println(i)
-    end
     s = join(reactions, "\n")
     println(s)
 
