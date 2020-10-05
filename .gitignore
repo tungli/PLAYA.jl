@@ -1,0 +1,6 @@
+build/
+
+Manifest.toml
+
+*.swp
+*.swo
