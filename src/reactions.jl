@@ -44,10 +44,11 @@ end
 """
 Transform a line from the reaction file into a `Catalyst` specified reaction.
 """
-function interpret_line(line, env, rates_list)
+function interpret_line(line, env, rates_list, to_replace)
     n, r, k = parse_line(line)
     k = replace_num_d(k)
     k = replace_exp(k)
+    r = safe_replace(r, to_replace)
     rate = interpret_rate(k, env)
     rate_param_name = "p$n"
     push!(rates_list, (rate_param_name, rate))
@@ -143,9 +144,8 @@ multiplication.
 function parse_reactions(filename, env; to_replace=[])
     rates_list = Vector{Tuple{String, Float64}}(undef, 0)
     reactions = open(filename) do file
-        [ interpret_line(line, env, rates_list) for line in eachline(file) ]
+        [ interpret_line(line, env, rates_list, to_replace) for line in eachline(file) ]
     end
-    reactions = map(x -> safe_replace(x, to_replace), reactions)
     s = join(reactions, "\n")
     println(s)
 
