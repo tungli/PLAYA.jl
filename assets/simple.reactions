@@ -1,0 +1,4 @@
+1:e + N      => e + e + N^+                          !   BOLOS {N -> N^+} *1e6
+2:e + O      => e + e + O^+                          !   BOLOS {O -> O^+ (ioniz)} *1e6
+3:e + N^+ + ANY_NEUTRAL => N + ANY_NEUTRAL           !   6.0d-27 * (300.0d0/Te)**1.5
+4:e + O^+ + ANY_NEUTRAL => O + ANY_NEUTRAL           !   6.0d-27 * (300.0d0/Te)**1.5
